@@ -10,4 +10,5 @@ $(call libc-add-cpu-variant-src,BCOPY,string/bcopy.c.arm)
 endif
 $(call libc-add-cpu-variant-src,STRCPY,arch-arm/cortex-a9/bionic/strcpy.S)
 $(call libc-add-cpu-variant-src,STRLEN,arch-arm/cortex-a9/bionic/strlen.S)
+
 #include bionic/libc/arch-arm/generic/generic.mk
