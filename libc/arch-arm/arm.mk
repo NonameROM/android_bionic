@@ -58,8 +58,20 @@ libc_bionic_src_files_arm += \
     arch-arm/bionic/sigsetjmp.S \
     arch-arm/bionic/syscall.S \
 
+# cortex-a9 without neon
+ifneq ($(TARGET_CPU_VARIANT),tegra2)
+  _LIBC_ARCH_COMMON_SRC_FILES += \
+    arch-arm/bionic/strlen.c.arm \
+
+endif
+
 libc_arch_static_src_files_arm := arch-arm/bionic/exidx_static.c
 libc_arch_dynamic_src_files_arm := arch-arm/bionic/exidx_dynamic.c
+
+# These are used by the static and dynamic versions of the libc
+# respectively.
+_LIBC_ARCH_STATIC_SRC_FILES := \
+    arch-arm/bionic/exidx_static.c
 
 libc_netbsd_src_files_arm := \
     upstream-netbsd/common/lib/libc/hash/sha1/sha1.c \
